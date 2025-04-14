@@ -1,0 +1,6 @@
+[submodule "receipt-reimbursement-ui"]
+	path = receipt-reimbursement-ui
+	url = https://github.com/rajaphanendra/receipt-reimbursement-ui
+[submodule "ReceiptReimbursementAPI"]
+	path = ReceiptReimbursementAPI
+	url = https://github.com/rajaphanendra/ReceiptReimbursementAPI

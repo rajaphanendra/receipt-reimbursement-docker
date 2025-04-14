@@ -1,0 +1,41 @@
+version: '3.9'
+
+services:
+  sqlserver:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    container_name: sqlserver2022
+    ports:
+      - "1433:1433"
+    environment:
+      SA_PASSWORD: ${SA_PASSWORD}
+      ACCEPT_EULA: "Y"
+    volumes:
+      - sqlserver_data:/var/opt/mssql
+
+  backend:
+    container_name: receipt-backend
+    build:
+      context: ./ReceiptReimbursementAPI
+      dockerfile: Dockerfile
+    ports:
+      - "5267:8080"
+    depends_on:
+      - sqlserver
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      ConnectionStrings__DefaultConnection: "Server=sqlserver,1433;Database=ReceiptDb;User Id=sa;Password=${SA_PASSWORD};TrustServerCertificate=True;"
+
+  frontend:
+    image: node:20
+    container_name: receipt-frontend
+    working_dir: /app
+    volumes:
+      - ./receipt-reimbursement-ui/dist/receipt-reimbursement-ui/browser:/app
+    command: npx http-server -p 4200 --fallback index.html
+    ports:
+      - "4200:4200"
+    depends_on:
+      - backend
+
+volumes:
+  sqlserver_data:
