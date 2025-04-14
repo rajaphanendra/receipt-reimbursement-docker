@@ -36,14 +36,22 @@ Make sure the following tools are installed:
 ---
 
 ## Environment Setup
+After cloning the repository
+```bash
+cd receipt-reimbursement-docker
+```
 
 1. Create a `.env` file in the project root:
 
 ```bash
 cp .env.example .env
 ```
+For Windows,
+```bash
+copy .env.example .env
+```
 
-2. Open `.env` and set your values:
+2. Open `.env` and set your Password:
 
 ```env
 SA_PASSWORD=YourStrong@Password123
