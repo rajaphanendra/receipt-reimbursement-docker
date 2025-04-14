@@ -111,6 +111,12 @@ Click the "View" link in the frontend table. This triggers download/open of the 
 
 ---
 
+## Swagger
+
+You can use Swagger to test the backend API: `http://localhost:5267/swagger`
+
+---
+
 ## Repository Links
 
 - **Frontend Repo:** [receipt-reimbursement-ui](https://github.com/rajaphanendra/receipt-reimbursement-ui)
