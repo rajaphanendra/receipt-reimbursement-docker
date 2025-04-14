@@ -58,7 +58,7 @@ SA_PASSWORD=YourStrong@Password123
 ### 1. Clone the Repositories
 
 ```bash
-git clone https://github.com/your-org/receipt-reimbursement-docker.git
+git clone https://github.com/rajaphanendra/receipt-reimbursement-docker.git
 cd receipt-reimbursement-docker
 
 # Initialize and pull submodules
