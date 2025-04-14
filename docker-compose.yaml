@@ -26,12 +26,10 @@ services:
       ConnectionStrings__DefaultConnection: "Server=sqlserver,1433;Database=ReceiptDb;User Id=sa;Password=${SA_PASSWORD};TrustServerCertificate=True;"
 
   frontend:
-    image: node:20
     container_name: receipt-frontend
-    working_dir: /app
-    volumes:
-      - ./receipt-reimbursement-ui/dist/receipt-reimbursement-ui/browser:/app
-    command: npx http-server -p 4200 --fallback index.html
+    build:
+      context: ./receipt-reimbursement-ui
+      dockerfile: Dockerfile
     ports:
       - "4200:4200"
     depends_on:
